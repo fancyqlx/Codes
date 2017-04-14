@@ -1,0 +1,370 @@
+时间限制：C/C++语言 2000MS；其他语言 4000MS
+内存限制：C/C++语言 131072KB；其他语言 655360KB
+题目描述：
+垂直绘制一个中括号的序列 并用中括号的大小表示层次关系
+绘制 [[[]]][] 这个括号序列
+如图：
+
+
+
+绘图遵守以下原则：
+   各个括号之间没有空格 只有在左右括号在最里层配对时 中间才会有一条空行
+   里层的括号必定小于外层的括号
+   同一层次的括号大小相同（比如上述的样例 最下面的括号和上面的大括号相同大小）
+输入
+输入一个以括号组成的字符串
+输出
+输出绘制的图形 保证括号匹配序列合法
+
+样例输入
+[][][]
+样例输出
++-+
+| |
+ 
+| |
++-+
++-+
+| |
+ 
+| |
++-+
++-+
+| |
+ 
+| |
++-+
+（下图为样例输出的图片格式，供参考）
+
+
+Hint
+数据范围：
+30%的数据 括号层数只有1
+100%的数据 括号层数 <= 6
+100%的数据 字符串长度 <= 100
+
+每行行末不要输出多余的空格
+
+数列
+时间限制：C/C++语言 2000MS；其他语言 4000MS
+内存限制：C/C++语言 131072KB；其他语言 655360KB
+题目描述：
+给定两个长度为 n 的整数数列 A 和 B。再给定 q 组查询，每次查询给出两个整数 x 和 y，求满足 Ai >= x 且 Bi >= y 这样的 i 的数量。
+输入
+第一行给定两个整数 n 和 q。
+第二行给定数列 A，包含 n 个整数。
+第三行给定数列 B，包含 n 个整数。
+接下来 q 行，每行两个整数 x 和 y，意义如上所述。
+输出
+对于每组查询，输出所求的下标数量。
+
+样例输入
+3 2
+3 2 4
+6 5 8
+1 1
+4 8
+样例输出
+3
+1
+
+Hint
+数据规模
+对于 30% 的数据，1 <= n, q <= 100。
+对于 100% 的数据，1 <= n, q, Ai, Bi <= 10^5。
+
+Paragraph
+时间限制：C/C++语言 3000MS；其他语言 5000MS
+内存限制：C/C++语言 131072KB；其他语言 655360KB
+题目描述：
+给定一个段落，由 N 个句子组成。第 i 个句子的长度为 L[i]，
+包含的单词个数为 W[i]。
+句子不包含任何除字母和空格( ) 外的符号。
+每个句子内部，含有若干个单词，由空格( ) 分隔。
+句子不会包含连续的空格。
+ 
+随后给定 M 个查询，每个查询包含一个句子，
+需要在段落中寻找相同单词数量最多的句子。
+重复的单词只计一次，且不区分大小写。
+输入数据将保证结果是存在且唯一的。
+输入
+第一行是两个整数 N 和 M。
+接下来的 N+M 行，每行包含一个句子。
+前 N 行代表段落中的句子，后 M 行表示查询。
+输出
+输出 M 行，每行代表查询的结果。
+
+样例输入
+6 3
+An algorithm is an effective method that can be expressed within a finite amount of space and time
+Starting from an initial state and initial input the instructions describe a computation
+That when executed proceeds through a finite number of successive states
+Eventually producing output and terminating at a final ending state
+The transition from one state to the next is not necessarily deterministic
+Some algorithms known as randomized algorithms incorporate random input
+Next to the transition
+Wormhole infinite time and space
+The transition from one state to the next is not necessarily deterministic
+样例输出
+The transition from one state to the next is not necessarily deterministic
+An algorithm is an effective method that can be expressed within a finite amount of space and time
+The transition from one state to the next is not necessarily deterministic
+
+Hint
+数据规模
+0 < L[i] < 512
+0 < W[i] < 32
+对于 30% 的数据，0 < N < 30，0 < M < 30。
+对于 100% 的数据，0 < N <= 600，0 < M <= 800。
+
+找出函数的最宽尖峰
+时间限制：C/C++语言 2000MS；其他语言 4000MS
+内存限制：C/C++语言 131072KB；其他语言 655360KB
+题目描述：
+按数组的形式给出函数f(x)的取值，即数组A的A[0]元素为f(0)的取值，数组的取值都为整数，
+函数在每个点都是严格单调递增或者严格递减（即A[i-1] != A[i] != A[i+1]），
+要求找出最宽的先上升后下降的区间（这个区间内函数的值必须先上升到一个点然后下降，区间的上升段和下降段长度必须都大于0）。
+1. 如果找到符合条件的最大区间输出数组对应的左右下标（有多个最大区间时，输出最左边的那个”）
+2. 找不到那么输出-1 -1
+输入
+n
+n长度的整数数组
+输出
+区间的范围
+
+样例输入
+10
+1 3 1 2 5 4 3 1 9 10
+样例输出
+2 7
+
+Hint
+数据规模
+对于 100% 的数据，1 <=n <=10, 000, 000
+
+-------------------------------------------------------------------
+microsoft
+-------------------------------------------------------------------
+时间限制:10000ms
+单点时限:1000ms
+内存限制:256MB
+描述
+There is a tree of N nodes which are numbered from 1 to N. 
+Unfortunately, its edges are missing so we don't know 
+how the nodes are connected. Instead we know:  
+
+1. Which nodes are leaves  
+
+2. The distance (number of edges) between any 
+pair of leaves
+
+3. The depth of every node (the root's depth is 1)
+
+4. For the nodes on the same level, their 
+order from left to right
+
+Can you restore the tree's edges with these information? 
+Note if node u is on the left of node v, u's parent 
+should not be on the right of v's parent.
+
+tree-restoration.png
+
+输入
+The first line contains three integers N, M and K. N 
+is the number of nodes. M is the depth of the tree. 
+K is the number of leaves.
+
+The second line contains M integers A1, A2, ... AM. 
+Ai represents the number of nodes of depth i.
+
+Then M lines follow. The ith of the M lines contains 
+Ai numbers which are the nodes of depth i from 
+left to right.  
+
+The (M+3)-th line contains K numbers L1, L2, ... LK, 
+indicating the leaves.
+
+Then a K × K matrix D follows. Dij represents the 
+distance between Li and Lj.
+
+1 ≤ N ≤ 100
+
+输出
+For every node from 1 to N output its parent. 
+Output 0 for the root's parent.
+
+样例输入
+8 3 5  
+1 3 4  
+1  
+2 3 4  
+5 6 7 8  
+3 5 6 7 8  
+0 3 3 3 3  
+3 0 2 4 4  
+3 2 0 4 4  
+3 4 4 0 2  
+3 4 4 2 0
+样例输出
+0 1 1 1 2 2 4 4
+
+---------------------------------
+时间限制:10000ms
+单点时限:1000ms
+内存限制:256MB
+描述
+In a video game Little Hi is trapped in a maze. 
+The maze can be considered as an N × M grid. 
+There are monsters on some cells. 
+Each cell has one monster at most. 
+Below is an example of a 4x5 maze. '.' 
+represents an empty cell. 'D' represents the entrance, 
+Little Hi's starting point. 
+'M' represents a normal monster. 
+'S' represents a special monster.  
+
+..S..
+M...M
+..D..
+.M...
+At the beginning, each cell is covered by a slate 
+except that the slate on the entrance cell has been already removed. Each round Little Hi may either remove a slate as long as
+
+1. each monster has either been killed or 
+still covered by a slate, and
+
+2. the cell covered by the slate is adjacent to 
+some cell whose slate has been already removed. 
+(Two cells are adjacent if they share a common side.)
+
+or attack a monster as long as the slate 
+covering it has been removed.
+
+At the beginning Little Hi has Hp hit 
+points and Ap attack points. Each monster also 
+has its hit points Hi and attack points Ai. 
+When Little Hi attacks a monster, the hit 
+points of both sides should subtract the 
+attack points of the other side.
+
+For example, if Little Hi's hit points are 
+50 and attack points are 30. When he 
+attacks a monster whose hit points are 25 
+and attack points are 10, the remaining hit 
+points for Little Hi are 40 and the remaining 
+hit points for the monster are -5.
+
+When hit points are less than or equal 
+to 0 the monster is killed.
+
+At the beginning Little Hi has a buff 
+called "Destruction Blade" which lasts 
+for 5 rounds. With such buff Little Hi 
+does not take damage when he attacks a monster. 
+The buff vanishes after 5 rounds but can be 
+refreshed or regained for the following 5 
+rounds after killing a special monster. 
+(Note that the buff always lasts for 5 
+rounds after killing a special monster 
+no matter how many rounds left before 
+killing the monster.)
+
+Now given the map of the maze. Can you 
+tell whether Little Hi can kill all the 
+monsters? If he can what is the maximum 
+remaining hit points?
+
+输入
+Line 1: two integers N and M. (2 ≤ N, M ≤ 6, N × M ≤ 20)
+
+Line 2 .. N+1: M characters per line, 
+representing the maze map.
+
+Line N+2 .. N+K+1: two integers Hi and Ai 
+per line, representing the hit points and 
+attack points for each monster, 
+from top to bottom and left to right. (3 ≤ K ≤ 7)
+
+Line N+K+2: two integers Hp and Ap, 
+the hit points and attack points for Little Hi.
+
+输出
+If Little Hi can kill all the monsters and 
+stay alive output the maximum remaining hit points. 
+Otherwise output DEAD.
+
+样例解释
+Let's assume the upper left cell is (1, 1).
+
+Round 1: remove slate (2, 3), buff remains 4 rounds
+
+Round 2: remove slate (2, 2), buff remains 3 rounds
+
+Round 3: remove slate (2, 1), buff remains 2 rounds
+
+Round 4: attack monster (2, 1), take no damage, buff remains 1 round
+
+Round 5: attack monster (2, 1), take no damage, monster killed, buff vanishes
+
+Round 6: remove slate (2, 4)  
+
+Round 7: remove slate (4, 3)  
+
+Round 8: remove slate (1, 3)  
+
+Round 9: attack monster (1, 3), take 5 damage, HP=55
+
+Round 10: attack monster (1, 3), take 5 damage, HP=50, monster killed, buff remains 5 rounds
+
+Round 11: remove slate (2, 5), buff remains 4 rounds
+
+Round 12: attack monster (2, 5) take no damage, buff remains 3 rounds
+
+Round 13: attack monster (2, 5) take no damage, buff remains 2 rounds
+
+Round 14: remove slate (4, 2), buff remains 1 round
+
+Round 15: attack monster (4, 2), take no damage, buff vanishes
+
+Round 16: attack monster (4, 2), take 5 damage, HP=45, monster killed
+
+样例输入
+4 5  
+..S..  
+M...M  
+..D..  
+.M...  
+20 5  
+20 5  
+20 5  
+20 5  
+60 10
+样例输出
+45
+----------------------------------------------------------
+时间限制:10000ms
+单点时限:1000ms
+内存限制:256MB
+描述
+You are given a sequence S of parentheses. You are asked to insert into S as few parentheses as possible so that the resulting sequence T is well matched.
+
+It's not difficult. But can you tell how many different T you can get?
+
+Assume S = ()), you can get either (()) or ()().
+
+输入
+One line contains the sequence S.  
+
+For 30% of the data, 1 ≤ |S| ≤ 10  
+
+For 60% of the data, 1 ≤ |S| ≤ 200  
+
+For 100% of the data, 1 ≤ |S| ≤ 1000  
+
+输出
+Output 2 integers indicating the minimum number of parentheses need to be inserted into S and the number of different T. The number of different T may be very large, so output the answer modulo 109+7.
+
+样例输入
+())
+样例输出
+1 2
