@@ -3,36 +3,47 @@
 #include <string>
 #include <fstream>
 #include <vector>
+#include <cmath>
+#include <iomanip>
+
 using namespace std;
 
-vector<string> rec(string & digits, vector<string> *tel, int i, int j){
-        if(i==j) return tel[digits[i]-'0'];
-        vector<string> vec;
-        int mid = (i+j)/2;
-        vector<string> a = rec(digits,tel,i,mid);
-        vector<string> b = rec(digits,tel,mid+1,j);
-        for(vector<string>::iterator it_a = a.begin();it_a!=a.end();++it_a){
-            for(vector<string>::iterator it_b = b.begin();it_b!=b.end();++it_b){
-                vec.push_back(*it_a+*it_b);
-            }   
-        }
-        return vec;
-    }
-    
-    vector<string> letterCombinations(string digits) {
-        vector<string> tel[10] = {{},{},{"a","b","c"},{"d","e","f"},{"g","h","i"},
-                            {"j","k","l"},{"m","n","o"},{"p","q","r","s"},
-                            {"t","u","v"},{"w","x","y","z"}};
-        return rec(digits,tel,0,digits.size());
-    }
+double dis(double a[3], double b[3]){
+    double x = a[0]-b[0],y=a[1]-b[1],z=a[2]-b[2];
+    return sqrt(x*x+y*y+z*z);
+}
 
 int main(){
-    //fstream fin("..\\test\\data.in",fstream::in);
-    //cin.rdbuf(fin.rdbuf());
-    vector<string> tel[10] = {{},{},{"a","b","c"},{"d","e","f"},{"g","h","i"},
-                            {"j","k","l"},{"m","n","o"},{"p","q","r","s"},
-                            {"t","u","v"},{"w","x","y","z"}};
-    string digits = "34342";
-    letterCombinations(digits);
+    fstream fin("..\\test\\data.in",fstream::in);
+    cin.rdbuf(fin.rdbuf());
+    int n;
+    while(cin>>n){
+        char * color = new char[n];
+        double (*point)[3] = new double[n][3];
+        char ch; double p;
+        for(int i=0;i<n;++i){
+            cin>>ch; color[i] = ch;
+            for(int j=0;j<3;++j){
+                cin>>p; point[i][j] = p;
+            }
+        }
+        double max = 0;
+        for(int i=0;i<n;++i){
+            for(int j=i+1;j<n;++j){
+                for(int k=j+1;k<n;++k){
+                    if((color[i] == color[j] && color[i] == color[k] && color[j]==color[k]) || (color[i]!=color[j] && color[i]!=color[k] && color[j]!=color[k])){
+                        double a=dis(point[i],point[j]);
+                        double b=dis(point[i],point[k]);
+                        double c=dis(point[j],point[k]);
+                        double p=(a+b+c)/2;
+                        double s=sqrt(p*(p-a)*(p-b)*(p-c));
+                        if(s>max) max = s;
+                    }
+                }
+            }
+        }
+        //cout.precision(5);
+        cout<<fixed<<setprecision(5)<<max<<endl;
+    }
     return 0;
 }
