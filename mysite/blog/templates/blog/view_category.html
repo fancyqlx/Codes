@@ -1,0 +1,77 @@
+{% extends 'blog/base.html' %}
+{% block head_title %}Viewing category {{ category.title }}{% endblock %}
+
+{% block content %}
+    <div class="col-lg-10 col-lg-offset-1">
+        <div class="well">
+                    <h4>Search</h4>
+                    <div class="input-group input-group-lg">
+                        <input type="text" class="form-control">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                    </div>
+                    <!-- /.input-group -->
+        </div>
+        {% if posts %}
+                <ul>
+                {% for post in posts %}
+                    <!--<li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>-->
+                    <div class="post-preview">
+                            <a href="{{ post.get_absolute_url }}">
+                            <h2 class="post-title">{{ post.title }}</h2>
+                        </a>
+                        <!-- Date/Time -->
+                        <a class="pure-button" href="#">
+                        <span class="glyphicon glyphicon-time"></span> {{ post.posted }}
+                        </a>
+                        <br>
+                        <div class="pure-button">
+                        <span class="glyphicon glyphicon-tags"></span>
+                        {{ post.category }}
+                        </div>
+                        <div class="post-subtitle">
+                            <p>
+                            {{ post.body }}
+                            </p>
+                        </div>
+                    </div>
+                    <a class="btn btn-primary" href="{{ post.get_absolute_url }}">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+                    <hr>
+                {% endfor %}
+                </ul>
+        {% else %}
+            <p>There are no posts.</p>
+        {% endif %}
+            <div class = "row">
+            <div class = "col-lg-6 col-lg-offset-3">
+            <nav aria-label="Page navigation">
+              <ul class="pagination">
+                <li class="page-item">
+                    {% if posts.has_previous %}
+                        <a class="page-link" href="?page={{ posts.previous_page_number }}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Previous</span>
+                        </a>
+                    {% endif %}
+                </li>
+                <li class="page-item active"><a class="page-link" href="?page={{ posts.number }}">{{ posts.number }}</a></li>
+                {% for i in range %}
+                    <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                {% endfor %}
+                <li class="page-item">
+                    {% if posts.has_next %}
+                        <a class="page-link" href="?page={{ posts.next_page_number }}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Next</span>
+                        </a>
+                    {% endif %}
+                </li>
+              </ul>
+            </nav>
+            </div>
+            </div>
+    </div>
+{% endblock %}
