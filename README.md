@@ -1,2 +1,2 @@
 # vscode
-Repository for vscode
+Repository for codes

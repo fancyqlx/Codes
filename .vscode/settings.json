@@ -1,9 +1,0 @@
-{
-    "files.associations": {
-        "xstring": "cpp",
-        "algorithm": "cpp",
-        "stack": "cpp",
-        "ios": "cpp",
-        "xiosbase": "cpp"
-    }
-}
