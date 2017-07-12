@@ -1,2 +1,2 @@
 # Code
-Repository for codes
+Repository for codes.
